@@ -9,8 +9,8 @@ jobs:
       - name: Checkout Aggregator
         uses: actions/checkout@v4
         with:
-          repository: samconley/newsatlas
-          ref: main
+          repository: 'samconley/newsatlas'
+          ref: 'main'
           path: aggregator
           token: ${{ secrets.GITHUB_TOKEN }}
 
