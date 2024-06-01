@@ -1,0 +1,19 @@
+name: Run Aggregator
+
+on: push
+
+jobs: 
+  build:
+      runs-on: ubuntu-latest
+      steps:
+      - name: Checkout Aggregator
+        uses: actions/checkout@v4
+        with:
+          repository: samconley/newsatlas
+          path: aggregator
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run Tasks
+        run: |
+          cd aggregator
+          ls
