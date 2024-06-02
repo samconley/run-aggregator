@@ -13,16 +13,15 @@ jobs:
           ref: main
           path: newsatlas
           token: ${{ secrets.AGG_PAT }}
-      # - name: Install Dependencies
-      #   run: |
-      #     cd aggregator
-      #     python -m pip install --upgrade pip
-      #     pip install pipenv
-      #     pipenv install
+      - name: Install Dependencies
+        run: |
+          cd newsatlas/aggregator
+          python -m pip install --upgrade pip
+          pip install pipenv
+          pipenv install
       - name: Run Python Program
         run: |
           cd newsatlas/aggregator
-          ls
-          # pipenv run python main.py
+          pipenv run python main.py
         env:
           DB_WRITER_PASSWORD: ${{ secrets.DB_WRITER_PASSWORD }}
