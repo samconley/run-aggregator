@@ -11,7 +11,7 @@ jobs:
         with:
           repository: samconley/newsatlas
           ref: main
-          path: aggregator
+          path: newsatlas
           token: ${{ secrets.AGG_PAT }}
       # - name: Install Dependencies
       #   run: |
@@ -21,8 +21,8 @@ jobs:
       #     pipenv install
       - name: Run Python Program
         run: |
-          cd aggregator
+          cd newsatlas/aggregator
           ls
-          pipenv run python main.py
+          # pipenv run python main.py
         env:
           DB_WRITER_PASSWORD: ${{ secrets.DB_WRITER_PASSWORD }}
