@@ -1,6 +1,6 @@
 name: Run Aggregator
 
-on: push
+on: push 
   # schedule:
   #   - cron: 45 3 * * *
 
