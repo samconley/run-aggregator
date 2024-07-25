@@ -1,8 +1,9 @@
 name: Run Aggregator
 
 on:
-  schedule:
-    - cron: 45 3 * * *
+  push
+  # schedule:
+  #   - cron: 45 3 * * *
 
 jobs: 
   build:
@@ -21,7 +22,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install pipenv
           pipenv install
-      - name: Run Python Program
+      - name: Install webdriver
+        run: |
+          wget https://storage.googleapis.com/chrome-for-testing-public/127.0.6533.72/linux64/chrome-linux64.zip
+          sudo apt-get install unzip
+          unzip chrome-linux64.zip
+          sudo mv chrome-linux64/chrome /usr/local/bin/chrome
+      - name: Run Aggregator
         run: |
           cd newsatlas/aggregator
           pipenv run python main.py
