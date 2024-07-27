@@ -1,8 +1,9 @@
 name: Run Aggregator
 
 on:
-  schedule:
-    - cron: 45 3 * * *
+  push
+  # schedule:
+  #   - cron: 45 3 * * *
 
 jobs: 
   build:
