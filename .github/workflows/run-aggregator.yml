@@ -1,8 +1,9 @@
 name: Run Aggregator
 
 on:
-  schedule:
-    - cron: 45 3 * * *
+  push
+  # schedule:
+    # - cron: 45 3 * * *
 
 jobs: 
   build:
@@ -21,8 +22,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install pipenv
           pipenv install
-      - name: Install playwright
-        run: |
           playwright install
       - name: Run Aggregator
         run: |
