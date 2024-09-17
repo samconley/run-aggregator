@@ -22,11 +22,15 @@ jobs:
           path: newsatlas
           token: ${{ secrets.AGG_PAT }}
       - name: Install Dependencies
-        run: |
-          cd newsatlas/aggregator
-          python -m pip install --upgrade pip
-          pip install pipenv
-          pipenv install
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+          cache: 'pipenv'
+      - name: Install pipenv 
+         run: |
+            curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
+            cd newsatlas/aggregator
+            pipenv install
       - name: Run Aggregator
         run: |
           cd newsatlas/aggregator
