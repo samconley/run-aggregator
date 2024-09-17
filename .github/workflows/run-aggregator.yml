@@ -21,7 +21,7 @@ jobs:
           ref: matrix-workflow-support
           path: newsatlas
           token: ${{ secrets.AGG_PAT }}
-      - name: Install Dependencies
+      - name: Setup python and cache
         uses: actions/setup-python@v5
         with:
           python-version: '3.9'
@@ -29,6 +29,8 @@ jobs:
       - name: Install pipenv 
         run: |
             curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
+      - name: Install deps
+        run: |
             cd newsatlas/aggregator
             pipenv install
       - name: Run Aggregator
