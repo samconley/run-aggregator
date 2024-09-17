@@ -1,6 +1,7 @@
 name: Run Aggregator
 
 on:
+  workflow_dispatch
   schedule:
     - cron: 45 3 * * *
 
