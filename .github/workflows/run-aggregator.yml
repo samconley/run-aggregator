@@ -27,7 +27,7 @@ jobs:
           python-version: '3.9'
           cache: 'pipenv'
       - name: Install pipenv 
-         run: |
+        run: |
             curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
             cd newsatlas/aggregator
             pipenv install
