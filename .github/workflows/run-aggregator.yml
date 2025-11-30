@@ -11,12 +11,11 @@ jobs:
     outputs:
       iso_matrix: ${{ steps.read.outputs.iso_matrix }}
     steps:
-      - name: Read ISO codes
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
       - name: Read iso codes file
         id: read
         run: |
-          matrix=$(cat iso_codes.json)
+          matrix=$(cat .github/iso_codes.json)
           echo "iso_matrix=$matrix" >> $GITHUB_OUTPUT
   build:
     needs: prepare-matrix
