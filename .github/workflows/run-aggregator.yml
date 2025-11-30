@@ -16,7 +16,7 @@ jobs:
       - name: Read iso codes file
         id: read
         run: |
-          matrix=$(cat ./github/workflows/iso_codes.json)
+          matrix=$(cat iso_codes.json)
           echo "iso_matrix=$matrix" >> $GITHUB_OUTPUT
   build:
     needs: prepare-matrix
